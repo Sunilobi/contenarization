@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-test
+  template:
+    metadata:
+      labels:
+        app: deployment-test
+    spec:
+      containers:
+        - name: my-apache-container
+          image: sunilobi/my-apache-image:latest
+          ports:
+            - containerPort: 80
