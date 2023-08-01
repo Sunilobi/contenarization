@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-service
+spec:
+  selector:
+    app: deployment-test  # Match the label of your Pod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080  # Specify the port you want to use externally
+  type: NodePort
